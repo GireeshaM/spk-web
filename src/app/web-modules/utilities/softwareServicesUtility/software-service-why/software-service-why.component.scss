@@ -1,0 +1,33 @@
+.why {
+  img {
+    width: 5rem;
+    height: 5rem;
+  }
+  .col {
+    display: flex;
+    justify-content: center;
+  }
+  .card {
+    width: 100%;
+    max-width: 300px;
+    min-height: 220px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    h1 {
+      font-weight: 500px;
+      font-size: 70px;
+    }
+    h5 {
+      font-weight: bold;
+      color: #0a2250;
+    }
+    &:hover {
+      border: 2px double #0a2250;
+      box-shadow: 0 4px 8px 0 #338dcd, 0 6px 20px 0 #2a93fb;
+    }
+  }
+}

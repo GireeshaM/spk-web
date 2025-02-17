@@ -1,0 +1,39 @@
+.card {
+  border: none;
+  text-align: left;
+}
+
+.card-title {
+  font-weight: 400;
+  font-size: 30px;
+  margin-bottom: 15px;
+  color: #0a2250;
+}
+
+.card-text {
+  font-weight: 400;
+  font-size: 18px;
+  color: #606262;
+}
+
+.card-img-top {
+  border-radius: 2rem;
+  max-height: 300px;
+  object-fit: cover;
+  padding: 15px;
+}
+
+.card .row .col-md-6 {
+  padding: 25px;
+}
+
+@media (max-width: 768px) {
+  .card-img-top {
+    max-height: 200px;
+    padding: 10px;
+  }
+
+  .card .row .col-md-6 {
+    padding: 15px;
+  }
+}

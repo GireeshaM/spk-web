@@ -1,0 +1,104 @@
+<!-- Main Hero -->
+<app-main
+  [whatHeader]="whatMainHeader"
+  [heroImage]="heroImage"
+  [smallImage]="smallImage"
+  [alignRight]="false"
+></app-main>
+
+<!-- Why Project Management -->
+<app-why
+  [whyList]="whyList"
+  [whyheader]="whyheader"
+  [images]="images"
+></app-why>
+
+<!-- What we do -->
+<app-what [whatList]="whatList" [whatHeader]="whatHeader"></app-what>
+
+<!-- Unmatched Services -->
+<div class="unmatched">
+  <div class="container">
+    <div class="row p-3 p-md-5">
+      <div
+        class="col-12 col-md-4 d-flex justify-content-center align-items-center text-center mb-3 mb-md-0"
+      >
+        <h1 class="text-white">Unmatched Services with Unmatched Excellence</h1>
+      </div>
+
+      <div class="col-12 col-md-4 mb-3 mb-md-0">
+        <div class="card h-100">
+          <div class="card-body d-flex flex-column p-4">
+            <h5 class="card-title">Project Planning</h5>
+            <ol class="card-text flex-grow-1">
+              <li>Project Initiation.</li>
+              <li>Setting goals, milestones and deadlines.</li>
+              <li>Planning and scheduling activities.</li>
+              <li>Ensuring availability of resources and finances.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 mb-3 mb-md-0">
+        <div class="card h-100">
+          <div class="card-body d-flex flex-column p-4">
+            <h5 class="card-title">Project Monitoring</h5>
+            <ol class="card-text flex-grow-1">
+              <li>Tracking Completion of works.</li>
+              <li>Tracking Consumption of resources.</li>
+              <li>Updating tasks.</li>
+              <li>Evaluation of Project milestones and deadlines.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row p-3 p-md-5">
+      <div class="col-12 col-md-4 mb-3 mb-md-0">
+        <div class="card h-100">
+          <div class="card-body d-flex flex-column p-4">
+            <h5 class="card-title">Resource Management</h5>
+            <ol class="card-text flex-grow-1">
+              <li>Assigning persons to project roles.</li>
+              <li>Ensuring availability of technicians for tasks.</li>
+              <li>Estimating financial resources and planning the budget.</li>
+              <li>Scheduling the needed financial resources.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 mb-3 mb-md-0">
+        <div class="card h-100">
+          <div class="card-body d-flex flex-column p-4">
+            <h5 class="card-title">Risk Management</h5>
+            <ol class="card-text flex-grow-1">
+              <li>Setting and prioritizing project risks.</li>
+              <li>Monitoring risk factors throughout the project.</li>
+              <li>
+                Assigning risk mitigation activities to corresponding
+                individuals.
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="card h-100 text-start custom-card">
+          <div class="card-body d-flex flex-column p-4">
+            <h5 class="card-title">Time Management</h5>
+            <ol class="card-text flex-grow-1">
+              <li>Monitoring the time spent on each task.</li>
+              <li>Maintaining time reports.</li>
+              <li>Logging time for project activities.</li>
+              <li>Planning team member's availability.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Why choose us -->
+<app-why-choose-us></app-why-choose-us>

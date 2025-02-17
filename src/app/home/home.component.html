@@ -1,0 +1,229 @@
+<div class="home">
+  <!-- Hero Section -->
+  <div class="it-container">
+    <video
+      #heroVideo
+      autoplay
+      loop
+      muted
+      playsinline
+      height="auto"
+      width="auto"
+      preload="auto"
+      [src]="videoSource"
+    >
+      <source [src]="videoSource" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <!-- Information Section -->
+  <div class="info-section p-5 text-center mt-3" @fadeInAnimation>
+    <h4 class="mb-4 mx-5">
+      SprintPark excels in providing quality services like
+      <a href="/it-consulting" target="_blank">IT Consulting</a>,
+      <a href="/staffingSolutions" target="_blank">Staffing</a>,
+      <a href="/projectManagement" target="_blank">Project Management</a>
+      and
+      <a href="/softwareServices" target="_blank">Software Solutions</a>. <br />
+      Our team of professionals is committed to offering flexible and tailored
+      solutions to enhance your business. <br />
+      Join us to thrive in the ever-changing world of technology and business.
+    </h4>
+
+    <a
+      href="/company"
+      class="btn me-1 btnn mt-3 text-black text-decoration-none"
+    >
+      Learn more
+      <i class="fa fa-chevron-right ms-2 custom-icon" aria-hidden="true"></i>
+    </a>
+  </div>
+
+  <!-- Partners -->
+  <div class="partners p-5 text-center mt-1 mb-0">
+    <h2><strong>Strategic Partners</strong></h2>
+    <h4 class="mb-4 mt-4 text-black">
+      We collaborate closely with industry leaders to offer cutting-edge
+      solutions, <br />SprintPark's strategic alliances include:
+    </h4>
+    <div class="row">
+      <p-carousel
+        [value]="images"
+        [numVisible]="4"
+        [numScroll]="1"
+        [circular]="true"
+        [responsiveOptions]="responsiveOptions"
+        swqaqaqaqaqZ
+        [autoplayInterval]="3000"
+      >
+        <ng-template let-image pTemplate="item">
+          <div class="card m-2 text-center py-3 px-3 border-0">
+            <div class="mb-3">
+              <img
+                [src]="image.image"
+                class="img-fluid"
+                alt="Partners Images"
+              />
+            </div>
+          </div>
+        </ng-template>
+      </p-carousel>
+    </div>
+  </div>
+
+  <!-- Services -->
+  <div
+    class="service-cards p-5 m-3 text-center mt-1 align-items-center justify-content-center"
+  >
+    <h2 class="mb-1"><strong>Services tailored to your business</strong></h2>
+    <h6 class="p-3">
+      SprintPark offers a wide array of services that are carefully designed to
+      meet every requirement of our clients. <br />
+      We know how to take your company to new heights with our people solutions,
+      cutting edge technological services, and strategic consultancy.
+    </h6>
+
+    <div class="row justify-content-center g-3 mt-2">
+      <ng-container *ngFor="let service of services">
+        <div class="col-12 col-md-6 d-flex justify-content-center">
+          <div
+            class="card custom-card d-flex justify-content-center align-items-center h-100 w-100"
+          >
+            <div class="card-inner">
+              <!-- Front of the card -->
+              <div class="card-front">
+                <img [src]="service.img" class="card-img" alt="Service Image" />
+                <div
+                  class="card-title-overlay d-flex w-75 text-start align-items-center"
+                >
+                  <h4 class="card-title text-black">
+                    <strong>{{ service.title }}</strong>
+                  </h4>
+                  <img
+                    [src]="service.imgSrc"
+                    class="img-fluid w-25 h-25 ms-3"
+                    alt="Service Icon"
+                  />
+                </div>
+              </div>
+              <!-- Back of the card -->
+              <div
+                class="card-back d-flex flex-column align-items-center text-center"
+              >
+                <img [src]="service.imgSrc" class="mt-4" alt="Service Icon" />
+                <h5 class="card-title mt-3 fw-bold">{{ service.title }}</h5>
+                <p class="card-text flex-grow-1 text-black">
+                  {{ service.description }}
+                </p>
+
+                <a
+                  [href]="service.link"
+                  class="text-decoration-none fw-bold btn btnn mt-4 mb-5"
+                >
+                  Explore {{ service.title }}
+
+                  <i
+                    class="fa fa-chevron-right ms-2 custom-icon"
+                    aria-hidden="true"
+                  ></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+  <!-- Sprint Works -->
+  <div class="sprintWorks mb-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 d-flex align-items-start text-white">
+          <h1 class="text-start text-white sticky-heading mt-5">
+            <span class="">SprintPark</span> <br />
+            Integration to all <br />
+            your business needs
+          </h1>
+        </div>
+        <div class="col-md-6" id="animatedContainer">
+          <div>
+            <div *ngFor="let card of weOfferCards; let i = index" class="mb-3">
+              <div
+                *ngIf="card.isCardVisible"
+                class="card h-100 border-0"
+                [ngClass]="{
+                  'zoomed-glow': card.isZoomed,
+                  'dull-card': !card.isZoomed
+                }"
+              >
+                <div class="card-content">
+                  <div class="card-body">
+                    <div class="media d-flex">
+                      <div class="me-3 mt-2 sprintWorkImage position-relative">
+                        <div class="outer-circle">
+                          <div class="inner-circle">
+                            <img [src]="card.icon" width="35" alt="Tick" />
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="media-body">
+                        <h2 class="pb-2">
+                          <strong>{{ card.cardHeading }}</strong>
+                        </h2>
+                        <p class="sub-text">{{ card.cardContent }}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Our Blog -->
+  <div class="explore container">
+    <h1 class="mb-4 mx-4"><strong>Explore our Blog</strong></h1>
+    <div class="row">
+      <p-carousel
+        [value]="feedbacks"
+        [numVisible]="3"
+        [numScroll]="1"
+        [circular]="true"
+        [responsiveOptions]="responsiveOptions"
+      >
+        <ng-template let-feedback pTemplate="item">
+          <div
+            class="card m-2 text-center py-3 px-3"
+            style="height: 550px; overflow: hidden"
+          >
+            <div class="mb-3">
+              <img
+                [src]="feedback.image"
+                class="card-img-top"
+                alt="Blog Image"
+              />
+            </div>
+            <div class="card-body text-start">
+              <h5 class="card-title">{{ feedback.title }}</h5>
+
+              <p class="card-text content">
+                {{ feedback.description }}
+              </p>
+              <div class="d-grid">
+                <h6 class="card-category">
+                  <a href="/insights"> {{ feedback.category }}</a>
+                </h6>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </p-carousel>
+    </div>
+  </div>
+</div>

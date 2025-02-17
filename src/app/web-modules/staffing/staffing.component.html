@@ -1,0 +1,67 @@
+<!-- Main Hero -->
+<app-main
+  [whatHeader]="whatMainHeader"
+  [heroImage]="heroMainImage"
+  [smallImage]="smallImage"
+>
+</app-main>
+<!-- Why Staffing -->
+<app-why
+  [whyList]="whyList"
+  [whyheader]="whyheader"
+  [images]="images"
+></app-why>
+
+<!-- How Sprintpark Hires -->
+<div class="container hexagon mb-5">
+  <h1 class="text-center mb-5">How SprintPark Hires</h1>
+  <div class="row">
+    <div class="col">
+      <img src="assets/staffing/hexagon1.png" alt="" class="hexagon-image" />
+
+      <p>
+        We gather information from the client on the role we are hiring for, the
+        technical skills needed, what abilities they are looking for in the
+        candidate.
+      </p>
+    </div>
+
+    <div class="col">
+      <img src="assets/staffing/hexagon2.png" alt="" class="hexagon-image" />
+      <p>
+        We have the ability to search and find talents that may or may not be in
+        the market. Our ability to find skilled professionals makes us better
+        than many other companies.
+      </p>
+    </div>
+    <div class="col">
+      <img src="assets/staffing/hexagon3.png" alt="" class="hexagon-image" />
+      <p>
+        When correct applicants are identified, we screen candidates to see
+        whether their talent aligns with the clients needs and whether they
+        match the values of the company.
+      </p>
+    </div>
+    <div class="col">
+      <img src="assets/staffing/hexagon4.png" alt="" class="hexagon-image" />
+      <p>
+        This can sometimes be a simple process, or can be drawn out over weeks
+        with first and second stages. We run background checks, reference
+        checks, and a credit check as part of the process.
+      </p>
+    </div>
+    <div class="col">
+      <img src="assets/staffing/hexagon5.png" alt="" class="hexagon-image" />
+      <p>
+        We give the best picks from our screening. We also work with the client
+        in the onboarding process of the new employee.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- What we do -->
+<app-what [whatList]="whatList" [whatHeader]="whatHeader"></app-what>
+
+<!-- Why choose us -->
+<app-why-choose-us></app-why-choose-us>

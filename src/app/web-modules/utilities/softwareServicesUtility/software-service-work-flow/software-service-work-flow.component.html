@@ -1,0 +1,18 @@
+<div class="howWeWork">
+  <div class="container">
+    <h1 class="heading">Our Working Strategy</h1>
+    <div
+      *ngFor="let card of howWeWorkcards; let i = index"
+      class="card"
+      [ngStyle]="getCardStyle(i)"
+    >
+      <div class="card-body d-flex justify-content-center align-items-center">
+        <h1 class="card-title pe-4">{{ i + 1 | number : "2.0" }}</h1>
+        <div class="innerCard" [ngStyle]="getInnerCardStyle(i)">
+          <h4 class="card-subtitle mb-2 text-white">{{ card.title }}</h4>
+          <p class="card-text text-white">{{ card.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

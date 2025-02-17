@@ -1,0 +1,504 @@
+<div class="top"></div>
+<div class="image-container position-relative w-100">
+  <img
+    src="assets/contactUs/contactHero.jpg"
+    alt="Contact Hero"
+    class="w-100 h-auto"
+  />
+  <div class="text-overlay text-white">
+    <h1>Reach To Us</h1>
+    <h4>Collaborate with us for exceptional outcome</h4>
+  </div>
+</div>
+
+<!-- Form Section -->
+<div class="contactBg">
+  <div class="container form-section">
+    <div class="row" style="min-height: 550px">
+      <!-- Column with Vertical Curve and Icons -->
+      <div
+        class="col-md-3 d-flex justify-content-center align-items-center position-relative icon-line flex-column flex-md-column"
+      >
+        <div class="vertical-curve"></div>
+        <!-- Icons placed along the curve -->
+        <div class="icon-container d-flex flex-row flex-md-column">
+          <div class="icon" (click)="showContent('contactForm')">
+            <i class="fa fa-envelope"></i>
+          </div>
+          <div class="icon with-signal" (click)="scrollToContact()">
+            <i class="fa fa-phone"></i>
+          </div>
+          <div class="icon" (click)="showContent('writeForm')">
+            <i class="fa fa-pencil"></i>
+          </div>
+          <div class="icon" (click)="scrollToMap()">
+            <i class="fa fa-map-marker"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Column with Forms -->
+      <div class="col-md-9 p-3 mb-5">
+        <h2 class="text-center mt-5">We'd like to hear from you</h2>
+        <div
+          *ngIf="selectedForm === 'contactForm'"
+          class="contact-form text-center border p-5"
+        >
+          <h3 class="mb-5">Contact Us</h3>
+          <form
+            [formGroup]="contactFormGroup"
+            (ngSubmit)="onSubmit()"
+            (submit)="sendEmail($event)"
+          >
+            <div class="row mb-5">
+              <div class="col-md-6">
+                <input
+                  name="name"
+                  type="text"
+                  class="form-control"
+                  formControlName="name"
+                  placeholder="Full Name"
+                  [ngClass]="{
+                    'is-invalid':
+                      contactFormGroup.get('name')?.invalid &&
+                      contactFormGroup.get('name')?.touched
+                  }"
+                />
+                <div
+                  *ngIf="
+                    contactFormGroup.get('name')?.touched &&
+                    contactFormGroup.get('name')?.invalid
+                  "
+                  class="text-danger"
+                >
+                  <div
+                    *ngIf="contactFormGroup.get('name')?.errors?.['required']"
+                  >
+                    Name is required.
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <input
+                  type="email"
+                  name="email"
+                  class="form-control"
+                  formControlName="email"
+                  placeholder="Email"
+                  [ngClass]="{
+                    'is-invalid':
+                      contactFormGroup.get('email')?.invalid &&
+                      contactFormGroup.get('email')?.touched
+                  }"
+                />
+                <div
+                  *ngIf="
+                    contactFormGroup.get('email')?.touched &&
+                    contactFormGroup.get('email')?.invalid
+                  "
+                  class="text-danger"
+                >
+                  <div
+                    *ngIf="contactFormGroup.get('email')?.errors?.['required']"
+                  >
+                    Email is required.
+                  </div>
+                  <div
+                    *ngIf="contactFormGroup.get('email')?.errors?.['pattern']"
+                  >
+                    Enter a valid email address.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row mb-5">
+              <div class="col-md-6">
+                <input
+                  type="text"
+                  name="phoneNumber"
+                  class="form-control"
+                  formControlName="phoneNumber"
+                  placeholder="Phone Number"
+                  [ngClass]="{
+                    'is-invalid':
+                      contactFormGroup.get('phone')?.invalid &&
+                      contactFormGroup.get('phone')?.touched
+                  }"
+                />
+                <div
+                  *ngIf="
+                    contactFormGroup.get('phone')?.touched &&
+                    contactFormGroup.get('phone')?.invalid
+                  "
+                  class="text-danger"
+                >
+                  <div
+                    *ngIf="contactFormGroup.get('phone')?.errors?.['required']"
+                  >
+                    Phone number is required.
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <input
+                  type="text"
+                  name="country"
+                  class="form-control"
+                  formControlName="country"
+                  placeholder="Country"
+                  [ngClass]="{
+                    'is-invalid':
+                      contactFormGroup.get('country')?.invalid &&
+                      contactFormGroup.get('country')?.touched
+                  }"
+                />
+                <div
+                  *ngIf="
+                    contactFormGroup.get('country')?.touched &&
+                    contactFormGroup.get('country')?.invalid
+                  "
+                  class="text-danger"
+                >
+                  <div
+                    *ngIf="contactFormGroup.get('country')?.errors?.['required']"
+                  >
+                    Country is required.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row mb-5">
+              <div class="col-12">
+                <textarea
+                  class="form-control"
+                  name="message"
+                  formControlName="message"
+                  rows="3"
+                  placeholder="Message"
+                  pattern=".{20,150}"
+                  [ngClass]="{
+                    'is-invalid':
+                      contactFormGroup.get('message')?.invalid &&
+                      contactFormGroup.get('message')?.touched
+                  }"
+                ></textarea>
+                <div
+                  *ngIf="
+                    contactFormGroup.get('message')?.touched &&
+                    contactFormGroup.get('message')?.invalid
+                  "
+                  class="text-danger"
+                >
+                  <div
+                    *ngIf="contactFormGroup.get('message')?.errors?.['required']"
+                  >
+                    Message is required.
+                  </div>
+                  <div
+                    *ngIf="contactFormGroup.get('message')?.errors?.['pattern']"
+                  >
+                    Enter at least 20 characters.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  [disabled]="contactFormGroup.invalid"
+                >
+                  Submit
+                </button>
+              </div>
+            </div>
+          </form>
+          <div *ngIf="submitted" class="alert alert-success mt-3">
+            Submitted Successfully!
+          </div>
+        </div>
+
+        <!-- Success Modal -->
+        <div
+          #successModal
+          class="modal fade"
+          id="successModal"
+          tabindex="-1"
+          aria-labelledby="successModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-center">
+              <div class="modal-header">
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                  (click)="closeModal()"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <i class="fa fa-check-circle fa-5x text-success mb-3"></i>
+                <p>Your application is submitted successfully</p>
+                <p>Thank you for your interest</p>
+                <p>We will get back to you soon</p>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                  (click)="closeModal()"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          *ngIf="selectedForm === 'writeForm'"
+          class="contact-form text-center border p-5"
+        >
+          <h3 class="mb-5">Write to Us</h3>
+          <form
+            [formGroup]="writeFormGroup"
+            (ngSubmit)="writeFormSubmit()"
+            (submit)="sendFormToEmail($event)"
+          >
+            <div class="mb-3">
+              <select
+                name="topic"
+                class="form-control"
+                formControlName="topic"
+                [ngClass]="{
+                  'is-invalid':
+                    writeFormGroup.get('topic')?.invalid &&
+                    writeFormGroup.get('topic')?.touched
+                }"
+              >
+                <option value="" disabled>Select a topic</option>
+                <option value="job">Job</option>
+                <option value="services">Services</option>
+                <option value="custom">Custom</option>
+              </select>
+              <input
+                *ngIf="writeFormGroup.get('topic')?.value === 'custom'"
+                type="text"
+                name="customTopic"
+                class="form-control mt-2"
+                formControlName="customTopic"
+                placeholder="Enter your own topic"
+                [ngClass]="{
+                  'is-invalid':
+                    writeFormGroup.get('customTopic')?.invalid &&
+                    writeFormGroup.get('customTopic')?.touched
+                }"
+              />
+              <div
+                *ngIf="
+                  writeFormGroup.get('topic')?.touched &&
+                  writeFormGroup.get('topic')?.invalid
+                "
+                class="text-danger"
+              >
+                <div *ngIf="writeFormGroup.get('topic')?.errors?.['required']">
+                  Choose the topic.
+                </div>
+              </div>
+
+              <div
+                *ngIf="
+                  writeFormGroup.get('topic')?.value === 'custom' &&
+                  writeFormGroup.get('customTopic')?.touched &&
+                  writeFormGroup.get('customTopic')?.invalid
+                "
+                class="text-danger"
+              >
+                <div
+                  *ngIf="writeFormGroup.get('customTopic')?.errors?.['required']"
+                >
+                  Please enter a custom topic.
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <input
+                type="text"
+                name="email"
+                class="form-control"
+                formControlName="email"
+                placeholder="Your Email ID"
+                [ngClass]="{
+                  'is-invalid':
+                    writeFormGroup.get('email')?.invalid &&
+                    writeFormGroup.get('email')?.touched
+                }"
+              />
+              <div
+                *ngIf="
+                  writeFormGroup.get('email')?.touched &&
+                  writeFormGroup.get('email')?.invalid
+                "
+                class="text-danger"
+              >
+                <div *ngIf="writeFormGroup.get('email')?.errors?.['required']">
+                  Email is required.
+                </div>
+                <div *ngIf="writeFormGroup.get('email')?.errors?.['pattern']">
+                  Enter a valid email address.
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <textarea
+                class="form-control"
+                name="message"
+                formControlName="message"
+                rows="3"
+                placeholder="Message"
+                pattern=".{20,150}"
+                [ngClass]="{
+                  'is-invalid':
+                    writeFormGroup.get('message')?.invalid &&
+                    writeFormGroup.get('message')?.touched
+                }"
+              ></textarea>
+              <div
+                *ngIf="
+                  writeFormGroup.get('message')?.touched &&
+                  writeFormGroup.get('message')?.invalid
+                "
+                class="text-danger"
+              >
+                <div
+                  *ngIf="writeFormGroup.get('message')?.errors?.['required']"
+                >
+                  Message is required.
+                </div>
+                <div *ngIf="writeFormGroup.get('message')?.errors?.['pattern']">
+                  Enter at least 20 characters.
+                </div>
+              </div>
+            </div>
+            <button
+              type="submit"
+              class="btn btn-primary"
+              [disabled]="writeFormGroup.invalid"
+            >
+              Submit
+            </button>
+          </form>
+          <div *ngIf="submitted" class="alert alert-success mt-3">
+            Submitted Successfully!
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Contact Section -->
+<div class="p-5 c-middle" id="contactContainer">
+  <div class="row text-center" #animatedContainer>
+    <!-- Email Section -->
+    <div class="col-3" *ngIf="isVisible" @slideInAnimation>
+      <div class="innerClass">
+        <i class="fa fa-envelope-o fa-3x icon-circle" aria-hidden="true"></i>
+      </div>
+      <div class="innerClass">
+        <p>info@sprintpark.com <br />hr@sprintpark.com</p>
+      </div>
+    </div>
+    <!-- Phone Section -->
+    <div class="col-3" *ngIf="isVisible" @slideInAnimation>
+      <div class="innerClass">
+        <i class="fa fa-phone fa-3x icon-circle" aria-hidden="true"></i>
+      </div>
+      <div class="innerP">
+        <p>+1 (860) 566 9894</p>
+        <p>+91 7207735554</p>
+      </div>
+    </div>
+    <!-- Location Section -->
+    <div class="col-3" *ngIf="isVisible" @slideInAnimation>
+      <div class="innerClass">
+        <i class="fa fa-map-marker fa-3x icon-circle" aria-hidden="true"></i>
+      </div>
+      <div class="innerClass innerP">
+        <p>
+          <span>USA Location :</span> <br />
+          85 Felt Rd, Suite #604, South Windsor, CT 06074 <br />
+          <span>India Location :</span> <br />
+          2nd Floor, Abhi's Ganga, Vittal Rao Nagar, Madhapur, Hyderabad,
+          Telangana 500081
+        </p>
+      </div>
+    </div>
+    <!-- Social Section -->
+    <div class="col-3" *ngIf="isVisible" @slideInAnimation>
+      <div class="innerClass">
+        <i
+          class="fa fa-address-book-o fa-3x icon-circle"
+          aria-hidden="true"
+        ></i>
+      </div>
+      <div>
+        <div class="innerClass">
+          <a href="https://www.facebook.com/SPRINTPARKLLC" target="_blank">
+            <img src="assets/contactUs/facebook.png" alt="Facebook Icon"
+          /></a>
+          <p class="mb-0 ms-2">Facebook</p>
+        </div>
+        <div class="innerClass">
+          <a href="https://www.instagram.com/sprintpark" target="_blank">
+            <img src="assets/contactUs/instagram.png" alt="Instagram Icon"
+          /></a>
+          <p class="mb-0 ms-2">Instagram</p>
+        </div>
+        <div class="innerClass">
+          <a
+            href="https://www.linkedin.com/company/sprintparkusa"
+            target="_blank"
+          >
+            <img src="assets/contactUs/linkedin.png" alt="LinkedIn Icon"
+          /></a>
+          <p class="mb-0 ms-2">LinkedIn</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Map Section -->
+<div id="mapContainer" class="mt-4">
+  <div class="p-5">
+    <h3 class="text-start mb-4 px-5">Visit Us</h3>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <iframe
+            src="https://maps.google.com/maps?q=85+Felt+Rd+%23604,+South+Windsor,+CT+06074,+USA&t=&z=13&ie=UTF8&iwloc=&output=embed"
+            width="100%"
+            height="400"
+            frameborder="0"
+            style="border: 0"
+            loading="lazy"
+          ></iframe>
+        </div>
+        <div class="col-md-6 mb-3">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15993.927750014946!2d78.3839004!3d17.4409821!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9386fa451f7d%3A0x54637f9b856993c3!2sSprintpark%20Solutions%20Pvt%20Ltd%20-%20Software%20Development%20Company!5e0!3m2!1sen!2sin!4v1696399082331!5m2!1sen!2sin"
+            width="100%"
+            height="400"
+            style="border: 0"
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

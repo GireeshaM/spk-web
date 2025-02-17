@@ -1,0 +1,37 @@
+.it-container {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+.container {
+  h6 {
+    color: #606262;
+  }
+}
+
+.hero-image {
+  width: 100%;
+  object-fit: contain;
+}
+
+.text-container {
+  position: absolute;
+  bottom: 40%;
+  right: 8%;
+  text-align: right;
+  z-index: 1;
+}
+@media (max-width: 576px) {
+  h1 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 !important;
+  }
+  h6 {
+    font-size: 16px !important;
+  }
+}

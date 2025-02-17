@@ -1,0 +1,44 @@
+.it-container {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+.hero-image {
+  width: 100%;
+  object-fit: contain;
+}
+
+.text-container {
+  position: absolute;
+  bottom: 30%;
+  right: 5%;
+  text-align: right;
+  z-index: 1;
+}
+.text-container.text-right {
+  text-align: right;
+  bottom: 30%;
+  right: 5%;
+}
+
+.text-container.text-left {
+  text-align: left;
+  top: 30%;
+  left: 5%;
+}
+
+@media (max-width: 576px) {
+  h1 {
+    font-size: 20px;
+  }
+
+  .text-container.text-left {
+    top: 40%;
+    left: 2%;
+  }
+  .text-container.text-right {
+    top: 40%;
+    right: 3%;
+  }
+}

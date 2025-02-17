@@ -1,0 +1,41 @@
+<app-dashboard-header></app-dashboard-header>
+<div class="d-flex">
+  <div class="d-flex justify-content-center w-100 mt-5">
+    <div class="inlineDiv p-5 rounded" style="overflow-x: auto">
+      <div class="table-responsive">
+        <table class="table table-hover border mx-auto rounded">
+          <thead class="table-light">
+            <tr>
+              <th scope="col" class="h5 py-3">Employee Name</th>
+              <th scope="col" class="h5 py-3">Employee ID</th>
+              <th scope="col" class="h5 py-3">Department</th>
+              <th scope="col" class="h5 py-3">Designation</th>
+              <th scope="col" class="h5 py-3">Reporting Manager</th>
+              <th scope="col" class="h5 py-3">Contact</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let employee of employeeData">
+              <td>
+                <img
+                  src="assets/dashboard/image.png"
+                  alt="Profile Picture"
+                  class="rounded-circle"
+                  width="40"
+                  height="40"
+                  style="object-fit: cover; margin-right: 10px"
+                />
+                {{ employee.full_name }}
+              </td>
+              <td>{{ employee.employee_id }}</td>
+              <td>{{ employee.department }}</td>
+              <td>{{ employee.designation }}</td>
+              <td>{{ employee.reporting_manager }}</td>
+              <td>{{ employee.email }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

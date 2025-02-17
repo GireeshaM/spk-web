@@ -1,0 +1,71 @@
+small {
+  font-weight: bold;
+  color: #0a2250;
+}
+a,
+p {
+  color: #0a2250;
+}
+i {
+  margin-right: 0.25rem;
+}
+.card-body {
+  font-weight: bold;
+}
+
+.vertical-line {
+  border-left: 2px solid #b3acac;
+  height: 200px;
+}
+.vertical-line-bottom {
+  border-left: 2px solid #b3acac;
+  height: 270px;
+}
+.vertical-line-mini {
+  border-left: 2px solid #b3acac;
+  height: 50px;
+}
+
+.card {
+  background-color: #e8ebf0;
+  border-radius: 1rem;
+
+  img {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+.nav-link {
+  p {
+    margin: 0;
+    font-size: 14px;
+  }
+}
+
+// img {
+//   border-radius: 50%;
+//   width: 200px; /* Ensure square shape */
+//   height: 200px;
+// }
+
+// img {
+//   width: 20px;
+//   height: 20px;
+// }
+// i {
+//   margin-right: 1rem;
+//   animation: floating 2s ease-in-out infinite; /* Apply the floating animation */
+// }
+
+// @keyframes floating {
+//   0% {
+//     transform: translateY(0); /* Initial position */
+//   }
+//   50% {
+//     transform: translateY(-10px); /* Move up slightly */
+//   }
+//   100% {
+//     transform: translateY(0); /* Back to the original position */
+//   }
+// }

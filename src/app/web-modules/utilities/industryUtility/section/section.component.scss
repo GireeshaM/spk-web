@@ -1,0 +1,172 @@
+.tele {
+  .topSection {
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #0a2250;
+    display: flex;
+    align-items: center;
+    .row {
+      color: white;
+    }
+  }
+
+  .smallScreenSection {
+    padding: 0;
+  }
+
+  .smallScreenSection img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .smallScreenSection h1,
+  .smallScreenSection p {
+    color: white;
+  }
+
+  /* Hide .topSection on small screens */
+  @media (max-width: 767px) {
+    .topSection {
+      display: none;
+    }
+  }
+
+  /* Hide .smallScreenSection on large screens */
+  @media (min-width: 768px) {
+    .smallScreenSection {
+      display: none;
+    }
+  }
+
+  .content {
+    margin-left: 20px;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    height: 100%;
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .background-1 {
+    background-image: url("../../../../../assets/industries/industriesCard1.png");
+  }
+
+  .background-2 {
+    background-image: url("../../../../../assets/industries/industryCard2.png");
+  }
+
+  .background-3 {
+    background-image: url("../../../../../assets/industries/industryCard3.png");
+  }
+  .background-4 {
+    background-image: url("../../../../../assets/industries/industryCard4.png");
+  }
+  .background-5 {
+    background-image: url("../../../../../assets/industries/industryCard5.png");
+  }
+  .background-6 {
+    background-image: url("../../../../../assets/industries/industryCard6.png");
+  }
+
+  /* Add more background classes as needed */
+
+  .card-title {
+    font-weight: bold;
+  }
+
+  .bottomSection {
+    z-index: 1;
+    position: relative;
+    h4,
+    p {
+      color: #0a2250;
+    }
+  }
+
+  .card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .card-body p {
+    flex-grow: 1;
+  }
+
+  .btnn {
+    border-radius: 3rem !important;
+    background-color: transparent !important;
+    border-color: rgb(27, 27, 111);
+    text-align: center;
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+  }
+
+  .btnn a {
+    color: #0a2250;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+  }
+
+  .btnn i {
+    margin-left: 0.5rem;
+  }
+  .industryBg {
+    background-image: url("../../../../../assets/industries/industryBottomSection.png");
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 2;
+    position: relative;
+  }
+
+  @media (max-width: 768px) {
+    .card {
+      min-height: 300px;
+      width: 100%;
+    }
+
+    .card-title {
+      font-size: 1.25rem;
+    }
+
+    .btnn {
+      width: 100%;
+      margin-top: auto;
+    }
+  }
+}
+.industryBg {
+  background-image: url("../../../../../assets/industries/industryBottomSection.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  padding: 50px 0;
+}
+
+.bottomSection {
+  position: relative;
+  z-index: 2;
+  background-color: transparent;
+}
+
+.card {
+  // background-color: white;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  // z-index: 3;
+  position: relative;
+}

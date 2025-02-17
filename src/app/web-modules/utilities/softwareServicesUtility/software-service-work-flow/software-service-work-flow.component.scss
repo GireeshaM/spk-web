@@ -1,0 +1,44 @@
+.howWeWork {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin-bottom: 100px;
+}
+
+.heading {
+  position: relative;
+  top: 90px;
+}
+
+.card {
+  color: white;
+  width: 50%;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.innerCard {
+  width: 100%;
+  padding: 10px;
+  border-radius: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: 100%;
+    margin-left: 0 !important;
+  }
+
+  .innerCard {
+    width: 100%;
+  }
+
+  .heading {
+    position: static;
+    text-align: center;
+  }
+}

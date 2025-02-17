@@ -1,0 +1,32 @@
+.unmatched {
+  //margin-top: 200px;
+  background-image: url("../../../assets/projectManagement/unmatchedBG.png");
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  min-height: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media (max-width: 768px) {
+    h1 {
+      color: #0a2250 !important;
+    }
+  }
+}
+
+.card {
+  min-height: 250px;
+  width: 20rem;
+  color: white;
+  text-align: start;
+  height: 100%;
+  border: 3.5px solid #264679;
+  border-radius: 2rem;
+  background-color: #0a2250;
+}
+
+.card:hover {
+  border: 3.5px solid white;
+}

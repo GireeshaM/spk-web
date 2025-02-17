@@ -1,0 +1,43 @@
+.social-icons img {
+  width: 30px;
+  height: 30px;
+}
+
+#mapContainer {
+  background-color: #f8f9fa;
+}
+.dropdown {
+  button {
+    width: 250px;
+    background-color: #e8ebf0;
+    border: none;
+    color: #0a2250;
+  }
+}
+.carousel {
+  img {
+    height: 310px;
+    border-radius: 1rem;
+  }
+}
+
+.card {
+  background-color: white;
+  border-radius: 1rem;
+  border: 2px solid #9c85c6;
+  text-align: center;
+  h3 {
+    color: black;
+  }
+}
+
+.card-body {
+  .card {
+    border: 1px solid black;
+    color: #0a2250;
+  }
+}
+
+.container-fluid {
+  background-color: #f4f4f4;
+}

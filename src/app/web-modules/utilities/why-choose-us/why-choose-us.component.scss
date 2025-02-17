@@ -1,0 +1,55 @@
+.card {
+  background-color: #e0e0e0;
+  background-color: #daebff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition: transform 0.75s ease;
+  h5,
+  p {
+    color: #0a2250;
+  }
+  p {
+    font-weight: 400;
+  }
+  &:hover {
+    background-color: #266db8;
+    transition: background ease-in 0.1s;
+    transform: scale(1.05); // Zoom effect
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+
+    h5,
+    p {
+      color: white;
+    }
+  }
+
+  .card-img-top {
+    width: 5rem;
+    height: 5rem;
+    margin: 0 auto; // Center image horizontally
+  }
+
+  .card-body {
+    padding: 1rem;
+  }
+}
+
+// Responsive adjustments for card image size and padding
+@media (max-width: 768px) {
+  .card-img-top {
+    width: 4rem;
+    height: 4rem;
+  }
+  .card-body {
+    padding: 0.75rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .card-img-top {
+    width: 3rem;
+    height: 3rem;
+  }
+  .card-body {
+    padding: 0.5rem;
+  }
+}

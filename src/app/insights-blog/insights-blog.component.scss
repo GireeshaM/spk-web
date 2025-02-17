@@ -1,0 +1,69 @@
+/* Top bar */
+.top {
+  height: 80px;
+  background-color: #0a2250;
+}
+
+/* Insights section */
+.insights {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+}
+
+.heading {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Image container for responsiveness */
+.image-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.image-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Paragraph styling */
+p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+span {
+  font-weight: bold;
+  color: #0a2250;
+}
+
+/* List styles */
+ul {
+  margin-left: 20px;
+  list-style: disc;
+}
+
+li {
+  margin-bottom: 10px;
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+  .insights {
+    padding: 10px;
+  }
+
+  .heading {
+    font-size: 1.5rem;
+  }
+}

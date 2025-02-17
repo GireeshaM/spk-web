@@ -1,0 +1,47 @@
+// .btnn {
+//   border-radius: 3rem !important;
+//   background-color: transparent !important;
+//   border-color: rgb(27, 27, 111);
+//   width: 9rem;
+// }
+
+.whatwedo {
+  .carousel-item {
+    display: flex;
+    align-items: stretch;
+    height: 100%;
+  }
+
+  .card {
+    padding: 10px;
+    margin-right: 20px;
+  }
+}
+
+h5 {
+  color: #0a2250;
+}
+
+p.card-text {
+  font-family: "Rubik", sans-serif !important;
+  color: #747474;
+}
+.btnn {
+  border-radius: 3rem !important;
+  background-color: transparent !important;
+  //border-color: rgb(27, 27, 111);
+  border-color: #0d9fbc;
+  border-width: 1px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  &:hover {
+    transform: scale(1.05); /* Zoom in by 10% */
+    transition: transform ease 1s;
+  }
+}
+.custom-icon {
+  color: white;
+  background-color: #0d9fbc;
+  border-radius: 50%;
+  padding: 4px;
+  font-size: 12px;
+}

@@ -1,0 +1,191 @@
+.top {
+  height: 70px;
+  background-color: #0a2250;
+}
+
+.heroImage {
+  position: relative;
+  text-align: center;
+  color: white;
+  span {
+    font-size: 80px;
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.heroImage img {
+  width: 100%;
+  height: auto;
+}
+
+.hero-text {
+  position: absolute;
+  top: 45%;
+  left: 78%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  @media (max-width: 768px) {
+    // position: absolute;
+    // top: 50%;
+    // left: 75%;
+    h1 {
+      font-size: 16px;
+    }
+    span {
+      font-size: 20px;
+    }
+  }
+}
+
+.text-white {
+  color: white;
+}
+
+.core-cards {
+  background-color: azure;
+  padding: 5rem 1rem;
+  margin: 0 auto;
+
+  .card {
+    background-color: #0a2250;
+  }
+
+  .custom-card {
+    margin-bottom: 0.5rem;
+  }
+
+  .row {
+    row-gap: 20px; /* Adjust the gap between rows */
+  }
+
+  .col-md-6 {
+    width: 100%;
+    max-width: 100%; /* Ensures cards occupy available space */
+  }
+}
+.backed {
+  .card {
+    align-items: center;
+  }
+  .card-img-top {
+    width: 50%;
+  }
+}
+.backed-top {
+  h2,
+  h5 {
+    font-weight: bold;
+  }
+  h2 {
+    color: #0a2250;
+  }
+}
+.content {
+  h3 {
+    font-weight: bold;
+  }
+}
+.partners {
+  img {
+    width: 100%;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+
+    //border: 2px solid #0070cd;
+  }
+  .col {
+    display: flex;
+    justify-content: center;
+    max-width: 220px;
+  }
+}
+.missionVision {
+  img {
+    border-radius: 2rem;
+    max-width: 380px;
+  }
+  .cardData {
+    max-width: 380px;
+    min-height: 250px;
+  }
+  p {
+    color: #4a5568;
+  }
+}
+
+.achievements {
+  position: relative;
+  text-align: center;
+  h5 {
+    font-weight: bold;
+  }
+  img {
+    width: 100%;
+  }
+
+  .achievements img {
+    width: 100%;
+    height: auto;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+  }
+
+  .row {
+    background-color: white;
+    padding: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 2;
+  }
+}
+.coreValues {
+  margin-top: 80px !important;
+
+  .card {
+    background-color: #f0f9fd;
+    height: 100%;
+  }
+
+  img {
+    width: 20%;
+  }
+  .secondColumn {
+    border: 5px solid #d1ebf9;
+    img {
+      width: 100%;
+    }
+    .btnn {
+      border-radius: 3rem !important;
+      background-color: transparent !important;
+      border-color: #0d9fbc;
+      border-width: 1px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      &:hover {
+        transform: scale(1.05); /* Zoom in by 10% */
+        transition: transform ease 0.5s;
+      }
+    }
+    .custom-icon {
+      color: white;
+      background-color: #0d9fbc;
+      border-radius: 50%;
+      padding: 4px;
+      font-size: 12px;
+    }
+  }
+}
+.subHeroImage {
+  img {
+    width: 100%;
+  }
+}
+.heroImage {
+  span {
+    color: #133574;
+  }
+}
