@@ -18,7 +18,6 @@ export interface UserData {
   blood_group: string;
   date_of_birth: string;
 }
-
 export interface AllEmployee {
   reporting_manager: string;
   employee_id: number | null;
@@ -26,4 +25,12 @@ export interface AllEmployee {
   email: string;
   designation: string | null;
   department: string;
+}
+export interface LeaveData {
+  typeOfLeave: string;
+  startDate: string;
+  endDate: string;
+  days: number;
+  appliedDate: string;
+  status: string;
 }

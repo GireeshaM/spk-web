@@ -1,0 +1,107 @@
+/* Table Styling */
+.table tr {
+  height: 70px;
+}
+
+td {
+  color: rgb(95, 95, 95);
+}
+
+th {
+  color: black;
+}
+
+.btnn {
+  background-color: #46aa55;
+  color: white;
+}
+
+tr {
+  text-align: center;
+}
+
+/* Chart Styling */
+.chart {
+  display: flex;
+  align-items: flex-end;
+  width: 100%; /* Make the chart take full width */
+  height: 300px;
+  border-left: 2px solid black;
+  border-bottom: 2px solid black;
+  padding-left: 20px;
+  position: relative;
+}
+
+.y-axis {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding-right: 10px;
+}
+
+.y-label {
+  height: 20px;
+  font-size: 12px;
+  text-align: right;
+}
+
+.bars {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.bar-container {
+  text-align: center;
+  width: 100px;
+}
+
+.bar {
+  width: 60px;
+  transition: height 0.3s ease-in-out;
+}
+
+.casual {
+  background-color: #8c68c8;
+}
+
+.sick {
+  background-color: #46aa55;
+}
+
+.comp-off {
+  background-color: #5a79d5;
+}
+
+.x-label {
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+/* Calendar Customization */
+// ::ng-deep .p-datepicker-header {
+//    background-color: #d55aba !important;
+// }
+
+/* Responsive Design for Small Screens */
+@media (max-width: 767px) {
+  .row {
+    flex-direction: column;
+  }
+
+  .col-12 {
+    width: 100%;
+  }
+
+  .chart {
+    width: 100%; /* Make the chart take full width */
+    margin-bottom: 20px;
+  }
+
+  .table-responsive {
+    width: 100%; /* Ensure table takes up the full width */
+  }
+}

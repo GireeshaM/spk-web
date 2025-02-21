@@ -46,14 +46,14 @@
                 Company
               </a>
             </li>
-            <li>
-              <a href="#" class="nav-link text-white">
+            <!-- <li>
+              <a href="/payroll" class="nav-link text-white">
                 <i class="fa fa-inr custom-icon"></i>
                 Payroll
               </a>
-            </li>
+            </li> -->
             <li>
-              <a href="#" class="nav-link text-white">
+              <a href="/attendance" class="nav-link text-white">
                 <i class="fa fa-calendar custom-icon"></i>
                 Attendance
               </a>
@@ -65,7 +65,7 @@
               </a>
             </li>
             <li>
-              <a href="#" class="nav-link text-white">
+              <a href="/leaves" class="nav-link text-white">
                 <i class="fa fa-calendar-minus-o custom-icon"></i>
                 Leaves
               </a>
@@ -102,7 +102,9 @@
             <li><a class="dropdown-item" href="#">Change Password</a></li>
             <li><a class="dropdown-item" href="#">Change Name</a></li>
             <li><hr class="dropdown-divider" /></li>
-            <li><a class="dropdown-item" href="#">Log out</a></li>
+            <li>
+              <a class="dropdown-item" href="#" (click)="logOut()">Log out</a>
+            </li>
           </ul>
         </div>
       </div>

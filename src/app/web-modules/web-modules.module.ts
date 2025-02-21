@@ -39,6 +39,10 @@ import { CompanyProfileComponent } from './dashboard/company-profile/company-pro
 import { DashboardHeaderComponent } from './dashboard/dashboard-header/dashboard-header.component';
 import { DirectoryComponent } from './dashboard/directory/directory.component';
 import { PayrollComponent } from './dashboard/payroll/payroll.component';
+import { LeavesComponent } from './dashboard/leaves/leaves.component';
+import { AttendanceComponent } from './dashboard/attendance/attendance.component';
+import { CalendarModule } from 'primeng/calendar';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -78,12 +82,16 @@ import { PayrollComponent } from './dashboard/payroll/payroll.component';
     DashboardHeaderComponent,
     DirectoryComponent,
     PayrollComponent,
+    LeavesComponent,
+    AttendanceComponent,
   ],
   imports: [
     CommonModule,
     WebModuleRoutingModules,
     CarouselModule,
     BrowserAnimationsModule,
+    CalendarModule,
+    FormsModule,
   ],
 })
 export class WebModulesModule {}

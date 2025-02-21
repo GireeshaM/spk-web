@@ -1,0 +1,49 @@
+<app-dashboard-header></app-dashboard-header>
+<div class="attendanceContainer">
+  <div class="container">
+    <div class="text-center mt-3">
+      <h2>Let's go to work</h2>
+      <button
+        class="btn"
+        [ngClass]="{ 'btn-success': isClockedIn, 'btn-primary': !isClockedIn }"
+        (click)="clockInWithLocation()"
+      >
+        {{ isClockedIn ? clockInTime : "Clock In" }}
+      </button>
+    </div>
+
+    <div class="mt-5">
+      <table class="table border table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Sl No.</th>
+            <th scope="col">Date</th>
+            <th scope="col">Log In Time</th>
+            <th scope="col">Log Out Time</th>
+            <th scope="col">IP Address</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let log of logs; let i = index">
+            <td>{{ i + 1 }}</td>
+            <!-- Reverse numbering -->
+            <td>{{ log.date }}</td>
+            <td>{{ log.loginTime }}</td>
+            <td>{{ log.logoutTime || "--" }}</td>
+            <td>{{ log.ipAddress }}</td>
+            <td>
+              <button
+                *ngIf="!log.logoutTime"
+                class="btn btn-danger"
+                (click)="clockOut(i)"
+              >
+                Clock Out
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

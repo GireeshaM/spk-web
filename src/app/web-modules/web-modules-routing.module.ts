@@ -26,6 +26,9 @@ import { AdminDashboardComponent } from './dashboard/admin-dashboard/admin-dashb
 import { LoginComponent } from '../login/login.component';
 import { CompanyProfileComponent } from './dashboard/company-profile/company-profile.component';
 import { DirectoryComponent } from './dashboard/directory/directory.component';
+import { PayrollComponent } from './dashboard/payroll/payroll.component';
+import { LeavesComponent } from './dashboard/leaves/leaves.component';
+import { AttendanceComponent } from './dashboard/attendance/attendance.component';
 
 const routes: Routes = [
   { path: '', component: ItConsultComponent },
@@ -137,6 +140,21 @@ const routes: Routes = [
   {
     path: 'directory',
     component: DirectoryComponent,
+    data: { showHeader: false, showFooter: false, showChatBot: false },
+  },
+  {
+    path: 'payroll',
+    component: PayrollComponent,
+    data: { showHeader: false, showFooter: false, showChatBot: false },
+  },
+  {
+    path: 'leaves',
+    component: LeavesComponent,
+    data: { showHeader: false, showFooter: false, showChatBot: false },
+  },
+  {
+    path: 'attendance',
+    component: AttendanceComponent,
     data: { showHeader: false, showFooter: false, showChatBot: false },
   },
 ];

@@ -8,6 +8,7 @@ import {
 import { LinkServiceService } from '../service/link-service.service';
 import { Router } from '@angular/router';
 import { UserData } from '../service/modal';
+import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private linkService: LinkServiceService,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) {}
 
   ngOnInit() {
@@ -43,6 +45,12 @@ export class LoginComponent implements OnInit {
         ],
       ],
       agree: [false, Validators.requiredTrue], // Checkbox must be checked
+    });
+
+    this.authService.userData$.subscribe((user) => {
+      if (user) {
+        this.linkService.updateEmployeeData([user]); // Ensure data is updated in the service
+      }
     });
   }
 
@@ -75,9 +83,10 @@ export class LoginComponent implements OnInit {
             date_of_birth: response.date_of_birth,
             blood_group: response.blood_group,
           };
+          this.authService.storeUserData(employeeData);
 
           // Pass the employee data in an array (because it's expected to be an array)
-          this.linkService.updateEmployeeData([employeeData]);
+          // this.linkService.updateEmployeeData([employeeData]);
           this.router.navigate(['/employeeDashboard']);
         },
         error: (err) => {
