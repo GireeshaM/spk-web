@@ -1,3 +1,45 @@
 .attendanceContainer {
   background-color: #f4f4f4;
 }
+.calendar-container {
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* 7 columns for week */
+  gap: 5px;
+}
+
+.calendar-day {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+  min-height: 80px;
+  font-size: 14px;
+  position: relative;
+  background-color: white;
+}
+
+.calendar-day.empty {
+  background-color: #f9f9f9;
+  border: none;
+}
+
+.calendar-day .hour-input {
+  width: 50px;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.calendar-day .status {
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.header {
+  font-weight: bold;
+  background-color: #ddd;
+}

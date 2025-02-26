@@ -1,19 +1,12 @@
+// .container-fluid {
+//    background-color: #f4f4f4;
+// }
+
 .social-icons img {
   width: 30px;
   height: 30px;
 }
 
-#mapContainer {
-  background-color: #f8f9fa;
-}
-.dropdown {
-  button {
-    width: 250px;
-    background-color: #e8ebf0;
-    border: none;
-    color: #0a2250;
-  }
-}
 .carousel {
   img {
     height: 310px;
@@ -21,23 +14,55 @@
   }
 }
 
-.card {
-  background-color: white;
-  border-radius: 1rem;
-  border: 2px solid #9c85c6;
-  text-align: center;
-  h3 {
+.company-info p {
+  display: flex;
+  justify-content: space-between;
+  max-width: 650px;
+  span {
+    font-weight: bold;
+    color: rgb(99, 99, 99);
+  }
+}
+
+.policyRow {
+  min-height: 400px;
+}
+
+#mapContainer {
+  background-color: #f8f9fa;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  p {
     color: black;
   }
-}
-
-.card-body {
-  .card {
-    border: 1px solid black;
-    color: #0a2250;
+  span,
+  i {
+    color: #042e7c;
   }
 }
 
-.container-fluid {
-  background-color: #f4f4f4;
+.card {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
+  background-color: white;
+  border-radius: 1rem;
+  border: 1px solid rgb(124, 124, 124);
+  text-align: center;
+  h5 {
+    color: #042e7c;
+    font-weight: 600;
+  }
+  .dropdown {
+    button {
+      width: 250px;
+      background-color: #e8ebf0;
+      border: none;
+      color: #0a2250;
+    }
+  }
+  .card-body {
+    .card {
+      border: 1px solid black;
+      color: #0a2250;
+      box-shadow: none;
+    }
+  }
 }

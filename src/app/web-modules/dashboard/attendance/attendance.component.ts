@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { LinkServiceService } from 'src/app/service/link-service.service';
+import { DayEntry } from 'src/app/service/modal';
 
 @Component({
   selector: 'app-attendance',
@@ -18,10 +20,14 @@ export class AttendanceComponent {
   }[] = [];
   userLocation: { lat: number; lon: number } | null = null;
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private linkService: LinkServiceService
+  ) {}
 
   ngOnInit() {
     this.getIPAddress();
+    this.generateMonthlyCalendar(this.selectedMonth);
   }
 
   clockInWithLocation() {
@@ -83,5 +89,138 @@ export class AttendanceComponent {
     } else {
       alert('Geolocation is not supported by this browser.');
     }
+  }
+
+  selectedMonth: Date = new Date();
+  daysOfMonth: DayEntry[] = [];
+  weekDays: string[] = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  selectedDay: any = {
+    date: new Date(),
+    hours: 0,
+    projectDetails: '',
+    leaveReason: '',
+    status: '',
+  };
+
+  autoFill = false;
+
+  generateMonthlyCalendar(date: Date): void {
+    const year = date.getFullYear();
+    const month = date.getMonth();
+    const firstDayOfMonth = new Date(year, month, 1).getDay();
+    const totalDays = new Date(year, month + 1, 0).getDate();
+    const today = new Date();
+
+    this.daysOfMonth = [];
+
+    // Fill empty slots for the first row before the 1st day
+    for (let i = 0; i < firstDayOfMonth; i++) {
+      this.daysOfMonth.push({
+        date: new Date(0),
+        hours: 0,
+        projectDetails: '',
+        leaveReason: '',
+        status: '',
+        disabled: true,
+      });
+    }
+
+    // Fill actual days
+    for (let day = 1; day <= totalDays; day++) {
+      const currentDate = new Date(year, month, day);
+      const isDisabled =
+        currentDate.getMonth() !== today.getMonth() ||
+        currentDate.getFullYear() !== today.getFullYear();
+
+      this.daysOfMonth.push({
+        date: currentDate,
+        hours: 0,
+        projectDetails: '',
+        leaveReason: '',
+        status: '❌ Not Filled',
+        disabled: isDisabled,
+      });
+    }
+  }
+
+  updateHours(day: DayEntry): void {
+    if (day.hours >= 8) {
+      day.status = '✅ Green'; // Fully filled
+    } else if (day.hours > 0) {
+      day.status = '🟡 Yellow'; // Partially filled
+    } else {
+      day.status = '❌ Not Filled'; // Not filled
+    }
+  }
+
+  previousMonth(): void {
+    this.selectedMonth = new Date(
+      this.selectedMonth.getFullYear(),
+      this.selectedMonth.getMonth() - 1,
+      1
+    );
+    this.generateMonthlyCalendar(this.selectedMonth);
+  }
+
+  nextMonth(): void {
+    this.selectedMonth = new Date(
+      this.selectedMonth.getFullYear(),
+      this.selectedMonth.getMonth() + 1,
+      1
+    );
+    this.generateMonthlyCalendar(this.selectedMonth);
+  }
+
+  getColor(status: string): string {
+    switch (status) {
+      case '✅ Green':
+        return 'green';
+      case '❌ Not Filled':
+        return 'red';
+      case '🟡 Yellow':
+        return 'orange';
+      default:
+        return 'black';
+    }
+  }
+
+  openModal(day: any) {
+    if (!day || !day.date) {
+      console.error('Invalid day object:', day);
+      return;
+    }
+    this.selectedDay = { ...day }; // Clone the object
+  }
+
+  closeModal() {
+    (document.getElementById('timeSheetModal') as any)?.classList.remove(
+      'show'
+    );
+    (document.getElementById('timeSheetModal') as any)?.style.setProperty(
+      'display',
+      'none'
+    );
+    document.body.classList.remove('modal-open');
+  }
+
+  saveDetails() {
+    if (this.autoFill) {
+      this.daysOfMonth.forEach((d) => {
+        if (d.date.getDay() === this.selectedDay.date.getDay()) {
+          d.hours = this.selectedDay.hours;
+          d.projectDetails = this.selectedDay.projectDetails;
+          d.leaveReason = this.selectedDay.leaveReason;
+        }
+      });
+    } else {
+      const index = this.daysOfMonth.findIndex(
+        (d) => d.date.getTime() === this.selectedDay.date.getTime()
+      );
+      if (index !== -1) {
+        this.daysOfMonth[index] = { ...this.selectedDay };
+      }
+    }
+    this.updateHours(this.selectedDay);
+    this.closeModal();
   }
 }

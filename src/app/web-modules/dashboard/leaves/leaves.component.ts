@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Subscription } from 'rxjs';
+import { LinkServiceService } from 'src/app/service/link-service.service';
 
 @Component({
   selector: 'app-leaves',
@@ -6,13 +9,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./leaves.component.scss'],
 })
 export class LeavesComponent {
-  // Leave counts (Max Y-axis value = 12)
-  casualLeave = 5;
-  sickLeave = 8;
-  compOffLeave = 3;
-
   date: Date[] | undefined;
+  public leaveForm!: FormGroup;
+  private subscription!: Subscription;
 
+  constructor(private formBuilder: FormBuilder) {}
   leaveRecords = [
     {
       typeOfLeave: 'Casual Leave',
@@ -36,7 +37,7 @@ export class LeavesComponent {
       endDate: '03 Jan 2024',
       days: 2,
       appliedDate: '31 Dec 2023',
-      status: 'Approved',
+      status: 'Cancelled',
     },
     {
       typeOfLeave: 'Casual Leave',
@@ -52,7 +53,7 @@ export class LeavesComponent {
       endDate: '03 Jan 2024',
       days: 2,
       appliedDate: '31 Dec 2023',
-      status: 'Approved',
+      status: 'Cancelled',
     },
     {
       typeOfLeave: 'Casual Leave',
@@ -116,9 +117,17 @@ export class LeavesComponent {
       status: 'Approved',
     },
   ];
-
-  // Y-axis labels from 1 to 12
-  yAxisLabels = Array.from({ length: 12 }, (_, i) => 12 - i);
+  ngOnInit(): void {
+    this.leaveForm = this.formBuilder.group({
+      typeOfLeave: ['', Validators.required],
+      startDate: ['', Validators.required],
+      endDate: ['', Validators.required],
+      reason: ['', Validators.required],
+    });
+  }
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
 
   currentPage = 1;
   recordsPerPage = 5;
@@ -131,13 +140,27 @@ export class LeavesComponent {
     );
   }
 
-  totalPages() {
+  public totalPages() {
     return Math.ceil(this.leaveRecords.length / this.recordsPerPage);
   }
 
-  changePage(newPage: number) {
+  public changePage(newPage: number) {
     if (newPage > 0 && newPage <= this.totalPages()) {
       this.currentPage = newPage;
+    }
+  }
+
+  public isFieldInvalid(field: string): boolean {
+    return (
+      this.leaveForm.controls[field].invalid &&
+      (this.leaveForm.controls[field].dirty ||
+        this.leaveForm.controls[field].touched)
+    );
+  }
+  onSubmit(): void {
+    if (this.leaveForm.valid) {
+      console.log('Leave Form Data:', this.leaveForm.value);
+      alert('Leave applied successfully!');
     }
   }
 }

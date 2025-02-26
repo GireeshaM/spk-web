@@ -22,5 +22,18 @@ export class DirectoryComponent implements OnInit {
         console.error('Error fetching employee data:', error);
       },
     });
+    this.departments = [
+      ...new Set(this.employeeData.map((emp) => emp.department)),
+    ]; // Get unique departments
+  }
+  departments: string[] = [];
+  selectedDepartment: string = '';
+  filteredEmployees = [...this.employeeData];
+
+  filterByDepartment(department: string) {
+    this.selectedDepartment = department;
+    this.filteredEmployees = department
+      ? this.employeeData.filter((emp) => emp.department === department)
+      : [...this.employeeData];
   }
 }

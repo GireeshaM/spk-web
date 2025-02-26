@@ -1,77 +1,237 @@
 <app-dashboard-header></app-dashboard-header>
-
-<div class="container mt-5 p-0">
-  <div>
-    <div class="text-center mb-4">
-      <button class="btn btnn">Apply Leave</button>
+<div class="leaveSection">
+  <div class="container p-0">
+    <div>
+      <div class="text-end mb-4">
+        <button
+          class="btn btnn mt-4"
+          data-bs-toggle="modal"
+          data-bs-target="#applyLeaveModal"
+        >
+          Apply Leave
+        </button>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-4 mb-4">
+          <div class="card p-2">
+            <div class="card-header d-flex justify-content-between">
+              <h5>Casual Leave</h5>
+              <i class="fa fa-calendar slot-icon" aria-hidden="true"></i>
+            </div>
+            <div class="card-body align-items-center">
+              <div class="d-flex justify-content-between">
+                <p>Credited Leaves</p>
+                <p>1.75</p>
+              </div>
+              <div class="d-flex justify-content-between">
+                <p>Total Leaves</p>
+                <p>7</p>
+              </div>
+              <div class="d-flex justify-content-between">
+                <p>Applied Leaves</p>
+                <p>0</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card p-2">
+            <div class="card-header d-flex justify-content-between">
+              <h5>Sick Leave</h5>
+              <i
+                class="fa fa-calendar-check-o slot-icon1"
+                aria-hidden="true"
+              ></i>
+            </div>
+            <div class="card-body align-items-center">
+              <div class="d-flex justify-content-between">
+                <p>Credited Leaves</p>
+                <p>2.5</p>
+              </div>
+              <div class="d-flex justify-content-between">
+                <p>Total Leaves</p>
+                <p>10</p>
+              </div>
+              <div class="d-flex justify-content-between">
+                <p>Applied Leaves</p>
+                <p>0</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card p-2">
+            <div class="card-header d-flex justify-content-between">
+              <h5>Loss of Pay</h5>
+              <i
+                class="fa fa-calendar-minus-o slot-icon2"
+                aria-hidden="true"
+              ></i>
+            </div>
+            <div class="card-body align-items-center">
+              <div class="d-flex justify-content-between">
+                <p>Credited Leaves</p>
+                <p>---</p>
+              </div>
+              <div class="d-flex justify-content-between">
+                <p>Total Leaves</p>
+                <p>365</p>
+              </div>
+              <div class="d-flex justify-content-between">
+                <p>Applied Leaves</p>
+                <p>0</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="row justify-content-center">
-      <div class="col-md-4 mb-4">
-        <div class="card p-2">
-          <div class="card-body align-items-center">
-            <div class="me-3"></div>
-            <div class="d-flex">
-              <!-- <h2 class="card-title mb-0 mx-3">01</h2> -->
-              <img src="images[0]" class="" alt="Card Image" />
-              <h4 class="mt-3 mx-3">whyList[0]</h4>
-            </div>
-            <div>
-              <p class="card-text mt-4">whyList[1]</p>
-            </div>
+    <!-- Apply Leave Modal -->
+    <div
+      class="modal fade"
+      id="applyLeaveModal"
+      tabindex="-1"
+      aria-labelledby="applyLeaveModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content bg-white text-black">
+          <div class="modal-header bg-white text-black">
+            <h4 class="modal-title" id="applyLeaveModalLabel">
+              Apply for Leave
+            </h4>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
           </div>
-        </div>
-      </div>
-      <div class="col-md-4 mb-4">
-        <div class="card p-2">
-          <div class="card-body align-items-center">
-            <div class="me-3"></div>
-            <div class="d-flex">
-              <!-- <h2 class="card-title mx-3 mb-0">02</h2> -->
-              <!-- <img src="assets/icons/clock1.png" class="" alt="" /> -->
-              <img src="images[1]" alt="Card Image" />
+          <div class="modal-body bg-white text-black">
+            <form [formGroup]="leaveForm" (ngSubmit)="onSubmit()">
+              <!-- Type of Leave -->
+              <div class="mb-3">
+                <label for="typeOfLeave" class="form-label"
+                  >Type of Leave</label
+                >
+                <select
+                  id="typeOfLeave"
+                  formControlName="typeOfLeave"
+                  class="form-select"
+                  [ngClass]="{ 'is-invalid': isFieldInvalid('typeOfLeave') }"
+                >
+                  <option value="" disabled>Select Leave Type</option>
+                  <option value="casual">Casual Leave</option>
+                  <option value="sick">Sick Leave</option>
+                  <option value="lop">Loss of Pay</option>
+                </select>
+                <div
+                  *ngIf="isFieldInvalid('typeOfLeave')"
+                  class="invalid-feedback"
+                >
+                  Type of leave is required.
+                </div>
+              </div>
 
-              <h4 class="mt-3 mx-3">whyList[2]</h4>
-            </div>
-            <div>
-              <p class="card-text mt-4">whyList[3]</p>
-            </div>
+              <!-- Start Date (First Half) -->
+              <div class="mb-3">
+                <label for="startDate" class="form-label"
+                  >Start Date (First Half)</label
+                >
+                <input
+                  type="date"
+                  id="startDate"
+                  formControlName="startDate"
+                  class="form-control"
+                  [ngClass]="{ 'is-invalid': isFieldInvalid('startDate') }"
+                />
+                <div
+                  *ngIf="isFieldInvalid('startDate')"
+                  class="invalid-feedback"
+                >
+                  Start date is required.
+                </div>
+              </div>
+
+              <!-- End Date (Second Half) -->
+              <div class="mb-3">
+                <label for="endDate" class="form-label"
+                  >End Date (Second Half)</label
+                >
+                <input
+                  type="date"
+                  id="endDate"
+                  formControlName="endDate"
+                  class="form-control"
+                  [ngClass]="{ 'is-invalid': isFieldInvalid('endDate') }"
+                />
+                <div *ngIf="isFieldInvalid('endDate')" class="invalid-feedback">
+                  End date is required.
+                </div>
+              </div>
+
+              <!-- Reason -->
+              <div class="mb-3">
+                <label for="reason" class="form-label">Reason</label>
+                <textarea
+                  id="reason"
+                  formControlName="reason"
+                  class="form-control"
+                  [ngClass]="{ 'is-invalid': isFieldInvalid('reason') }"
+                ></textarea>
+                <div *ngIf="isFieldInvalid('reason')" class="invalid-feedback">
+                  Reason is required.
+                </div>
+              </div>
+            </form>
           </div>
-        </div>
-      </div>
-      <div class="col-md-4 mb-4">
-        <div class="card p-2">
-          <div class="card-body align-items-center">
-            <div class="me-3"></div>
-            <div class="d-flex">
-              <!-- <h2 class="card-title mb-0 mx-3">03</h2> -->
-              <img src="images[2]" alt="Card Image" />
-
-              <h4 class="mt-3 mx-3">whyList[4]</h4>
-            </div>
-            <div>
-              <p class="card-text mt-4">whyList[5]</p>
-            </div>
+          <div class="modal-footer bg-white text-black">
+            <button
+              type="submit"
+              [disabled]="leaveForm.invalid"
+              class="btn btn-primary"
+              (click)="onSubmit()"
+            >
+              Apply
+            </button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="row">
-    <!-- Table Section -->
-    <div class="col-12 col-md-8 mt-3">
-      <div class="justify-content-start w-100">
-        <div class="inlineDiv rounded" style="overflow-x: auto">
+    <div class="row gx-5">
+      <!-- Table Section -->
+      <div class="col-lg-8 col-md-8 mt-3 tableSection mb-3 rounded">
+        <div class="rounded mt-3" style="overflow-x: auto">
+          <h5
+            class="text-start p-3 fw-bold"
+            style="
+              background-image: linear-gradient(
+                rgb(248, 134, 176),
+                rgb(231, 202, 154)
+              );
+            "
+          >
+            Leave Logs
+          </h5>
+
           <div class="table-responsive">
-            <table class="table mx-auto rounded">
+            <table class="table table-striped mx-auto rounded">
               <thead class="table-light">
                 <tr>
-                  <th scope="col" class="h5 py-3">Type</th>
-                  <th scope="col" class="h5 py-3">Start Date</th>
-                  <th scope="col" class="h5 py-3">End Date</th>
-                  <th scope="col" class="h5 py-3">Days</th>
-                  <th scope="col" class="h5 py-3">Applied On</th>
-                  <th scope="col" class="h5 py-3">Status</th>
+                  <th scope="col" class="h6 py-3">Type</th>
+                  <th scope="col" class="h6 py-3">Start Date</th>
+                  <th scope="col" class="h6 py-3">End Date</th>
+                  <th scope="col" class="h6 py-3">Days</th>
+                  <th scope="col" class="h6 py-3">Applied On</th>
+                  <th scope="col" class="h6 py-3">Status</th>
                 </tr>
               </thead>
               <tbody>
@@ -120,51 +280,12 @@
           </nav>
         </div>
       </div>
-    </div>
 
-    <!-- Graph Section -->
-    <div class="col-12 col-md-4 mt-3">
-      <div>
-        <div class="chart mt-2">
-          <!-- Y-axis labels -->
-          <div class="y-axis">
-            <div *ngFor="let label of yAxisLabels" class="y-label">
-              {{ label }}
-            </div>
-          </div>
-
-          <!-- Chart bars -->
-          <div class="bars">
-            <div class="bar-container">
-              <div>
-                <div
-                  class="bar casual"
-                  [style.height]="casualLeave * 20 + 'px'"
-                ></div>
-              </div>
-              <div class="x-label">Casual</div>
-            </div>
-
-            <div class="bar-container">
-              <div
-                class="bar sick"
-                [style.height]="sickLeave * 20 + 'px'"
-              ></div>
-              <div class="x-label">Sick</div>
-            </div>
-
-            <div class="bar-container">
-              <div
-                class="bar comp-off"
-                [style.height]="compOffLeave * 20 + 'px'"
-              ></div>
-              <div class="x-label">Comp Off</div>
-            </div>
-          </div>
-        </div>
-
+      <!-- Graph Section -->
+      <div class="col-lg-4 col-md-4 mt-3">
         <!-- Calendar Section -->
-        <div class="mt-5">
+        <div class="calender rounded">
+          <h5 class="text-center fw-bold">Holiday Calendar</h5>
           <p-calendar class="max-w-full" [(ngModel)]="date" [inline]="true" />
         </div>
       </div>

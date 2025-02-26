@@ -1,5 +1,4 @@
 <app-dashboard-header></app-dashboard-header>
-
 <div class="container-fluid p-5">
   <div class="row">
     <div class="col-lg-6 d-flex flex-column align-items-center">
@@ -81,35 +80,41 @@
       </div>
 
       <!-- Company Info -->
-      <div class="mt-4 text-center text-md-start w-100">
-        <p class="fw-bold">
-          Registered Company Name: SprintPark Solutions Pvt Ltd
-        </p>
-        <p class="fw-bold">Brand Name: SprintPark</p>
+      <div class="mt-4 w-100 company-info">
         <p>
-          Company Email ID:
-          <a href="mailto:humanresources@sprintpark.com"
-            >humanresources@sprintpark.com</a
+          <span>Registered Company Name :</span
+          ><span>SprintPark Solutions Pvt Ltd</span>
+        </p>
+        <p><span>Brand Name :</span><span>SprintPark</span></p>
+        <p>
+          <span> Company Email ID :</span
+          ><span>
+            <a href="mailto:humanresources@sprintpark.com"
+              >humanresources@sprintpark.com</a
+            ></span
           >
         </p>
-        <p>Official Contact: <a href="tel:+917207735554">+91 7207735554</a></p>
+        <p><span>Official Contact :</span><span>+91 7207735554</span></p>
         <p>
-          Website:
-          <a href="https://www.sprintpark.com" target="_blank"
-            >www.sprintpark.com</a
+          <span> Website :</span
+          ><span>
+            <a href="https://www.sprintpark.com" target="_blank"
+              >www.sprintpark.com</a
+            ></span
           >
         </p>
-        <p>Domain Name: sprintpark</p>
+        <p><span>Domain Name :</span><span>sprintpark</span></p>
       </div>
     </div>
 
+    <!--Policies-->
     <div class="col-lg-6">
       <div class="row">
         <div class="col">
-          <div class="card mb-2">
+          <div class="card policyRow">
             <div class="card-body d-flex flex-column">
-              <h3>Company Policies</h3>
-              <div class="d-flex flex-column gap-2">
+              <h5>Company Policies</h5>
+              <div class="d-flex flex-column gap-2 mt-3">
                 <div class="card bg-white flex-fill p-3">HR Policies</div>
                 <div class="card bg-white flex-fill p-3">Leave Policy</div>
                 <div class="card bg-white flex-fill p-3">Referral Policy</div>
@@ -119,76 +124,23 @@
           </div>
         </div>
         <div class="col">
-          <div class="card mb-2 bg-white">
+          <div class="card mb-2 bg-white policyRow">
             <div class="card-body d-flex flex-column">
-              <h3>Recent Recognitions</h3>
+              <h5>Recent Recognitions</h5>
               <div class="card bg-white flex-fill p-3 d-flex border-0">
                 <div class="d-flex flex-wrap justify-content-center gap-3">
-                  <div class="text-center">
+                  <div
+                    class="text-center"
+                    *ngFor="let data of recognitionsData"
+                  >
                     <img
-                      src="assets/dashboard/image.png"
+                      [src]="data.image"
                       alt="Profile Picture"
                       class="rounded-circle"
                       width="40"
                       height="40"
-                      style="object-fit: cover; margin-right: 10px"
                     />
-                    <p>Gireesha <br />Developer</p>
-                  </div>
-                  <div class="text-center">
-                    <img
-                      src="assets/dashboard/image.png"
-                      alt="Profile Picture"
-                      class="rounded-circle"
-                      width="40"
-                      height="40"
-                      style="object-fit: cover; margin-right: 10px"
-                    />
-                    <p>Gireesha <br />Developer</p>
-                  </div>
-                  <div class="text-center">
-                    <img
-                      src="assets/dashboard/image.png"
-                      alt="Profile Picture"
-                      class="rounded-circle"
-                      width="40"
-                      height="40"
-                      style="object-fit: cover; margin-right: 10px"
-                    />
-                    <p>Gireesha <br />Developer</p>
-                  </div>
-                  <div class="text-center">
-                    <img
-                      src="assets/dashboard/image.png"
-                      alt="Profile Picture"
-                      class="rounded-circle"
-                      width="40"
-                      height="40"
-                      style="object-fit: cover; margin-right: 10px"
-                    />
-                    <p>Gireesha <br />Developer</p>
-                  </div>
-                  <div class="text-center">
-                    <img
-                      src="assets/dashboard/image.png"
-                      alt="Profile Picture"
-                      class="rounded-circle"
-                      width="40"
-                      height="40"
-                      style="object-fit: cover; margin-right: 10px"
-                    />
-                    <p>Gireesha <br />Developer</p>
-                  </div>
-                  <div class="text-center">
-                    <img
-                      src="assets/dashboard/image.png"
-                      alt="Profile Picture"
-                      class="rounded-circle"
-                      width="40"
-                      height="40"
-                      style="object-fit: cover; margin-right: 10px"
-                    />
-                    <p>Gireesha <br />Developer</p>
+                    <p>{{ data.name }} <br />{{ data.designation }}</p>
                   </div>
                 </div>
               </div>
@@ -200,7 +152,7 @@
         <div class="col">
           <div class="card mb-2 bg-white">
             <div class="card-body d-flex flex-column">
-              <h3>Important Contacts</h3>
+              <h5>Important Contacts</h5>
               <div class="d-flex flex-column gap-2">
                 <div class="dropdown">
                   <button
@@ -237,7 +189,7 @@
         <div class="col">
           <div class="card mb-2 bg-white">
             <div class="card-body d-flex flex-column">
-              <h3>Assets Assigned</h3>
+              <h5>Assets Assigned</h5>
               <div class="d-flex flex-column gap-2">
                 <div class="dropdown">
                   <button
@@ -246,7 +198,7 @@
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
-                    HR Department
+                    Laptop-Model name 11/11/11
                   </button>
                   <ul class="dropdown-menu">
                     <li class="dropdown-item" href="#">8898888888</li>
@@ -260,7 +212,7 @@
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
-                    Network Engineer
+                    Mouse-Model name 11/11/11
                   </button>
                   <ul class="dropdown-menu">
                     <li class="dropdown-item" href="#">8898888888</li>
@@ -274,9 +226,11 @@
       </div>
     </div>
   </div>
-  <div id="mapContainer" class="mt-4 p-3 border border-primary rounded w-100">
+
+  <!--Map-->
+  <div id="mapContainer" class="mt-4 p-3 border rounded w-100">
     <div class="row">
-      <!-- India Office -->
+      <!--India Office -->
       <div
         class="col-lg-6 d-flex flex-column flex-lg-row align-items-lg-start mb-3"
       >
@@ -286,12 +240,16 @@
           height="250"
           loading="lazy"
         ></iframe>
-        <div class="mt-2 ms-lg-3">
-          <i class="fa fa-map-marker" aria-hidden="true">
-            Hyderabad, India <br />
-            SprintPark Solutions Pvt Ltd, Unit No: 201, 2nd Floor, Abhi's Ganga,
-            Plot No:15, Shilpi Valley, Gafoor Nagar, Madhapur, Telangana, India
-          </i>
+        <div class="mt-2 ms-lg-3 text-center">
+          <p class="fw-bold">
+            <i class="fa fa-map-marker fa-lg mx-2" aria-hidden="true"> </i>
+            <span>Hyderabad, India</span>
+          </p>
+          <p class="text-black">SprintPark Solutions Pvt Ltd</p>
+          <p class="text-black">
+            Unit No: 201, 2nd Floor, Abhi's Ganga, Plot No:15, Shilpi Valley,
+            Gafoor Nagar, Madhapur, Telangana, India
+          </p>
         </div>
       </div>
 
@@ -305,11 +263,13 @@
           height="250"
           loading="lazy"
         ></iframe>
-        <div class="mt-2 ms-lg-3">
-          <i class="fa fa-map-marker" aria-hidden="true">
-            Connecticut, US <br />
-            SprintPark LLC, 85 Felt Rd, #604, South Windsor
-          </i>
+        <div class="mt-2 ms-lg-3 text-center">
+          <p class="fw-bold">
+            <i class="fa fa-map-marker fa-lg mx-2" aria-hidden="true"> </i>
+            <span>Connecticut, US</span>
+          </p>
+          <p>SprintPark LLC</p>
+          <p>85 Felt Rd, #604, South Windsor</p>
         </div>
       </div>
     </div>

@@ -16,3 +16,15 @@ th {
   background-color: #e8ebf0;
   border: 1px solid #082b6e;
 }
+
+.container {
+  background-color: #e8ebf0;
+  border-radius: 1.5rem;
+
+  .card {
+    border-radius: 1.5rem;
+  }
+  p {
+    font-size: 14px;
+  }
+}

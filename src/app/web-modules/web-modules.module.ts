@@ -42,7 +42,8 @@ import { PayrollComponent } from './dashboard/payroll/payroll.component';
 import { LeavesComponent } from './dashboard/leaves/leaves.component';
 import { AttendanceComponent } from './dashboard/attendance/attendance.component';
 import { CalendarModule } from 'primeng/calendar';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TableModule } from 'primeng/table';
 
 @NgModule({
   declarations: [
@@ -92,6 +93,8 @@ import { FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     CalendarModule,
     FormsModule,
+    ReactiveFormsModule,
+    TableModule,
   ],
 })
 export class WebModulesModule {}

@@ -34,3 +34,11 @@ export interface LeaveData {
   appliedDate: string;
   status: string;
 }
+export interface DayEntry {
+  date: Date;
+  hours: number;
+  status: string; // "Green", "Red", "Yellow", etc.
+  disabled: boolean;
+  projectDetails: string;
+  leaveReason: string;
+}
