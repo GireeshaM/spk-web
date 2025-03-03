@@ -21,14 +21,6 @@ import { NetworkEngineeringComponent } from './softwareServices/network-engineer
 import { DataAnalyticsComponent } from './softwareServices/data-analytics/data-analytics.component';
 import { BigDataComponent } from './softwareServices/big-data/big-data.component';
 import { JavaComponent } from './softwareServices/java/java.component';
-import { EmployeeDashboardComponent } from './dashboard/employee-dashboard/employee-dashboard.component';
-import { AdminDashboardComponent } from './dashboard/admin-dashboard/admin-dashboard.component';
-import { LoginComponent } from '../login/login.component';
-import { CompanyProfileComponent } from './dashboard/company-profile/company-profile.component';
-import { DirectoryComponent } from './dashboard/directory/directory.component';
-import { PayrollComponent } from './dashboard/payroll/payroll.component';
-import { LeavesComponent } from './dashboard/leaves/leaves.component';
-import { AttendanceComponent } from './dashboard/attendance/attendance.component';
 
 const routes: Routes = [
   { path: '', component: ItConsultComponent },
@@ -116,46 +108,6 @@ const routes: Routes = [
   {
     path: 'java',
     component: JavaComponent,
-  },
-  {
-    path: 'employeeDashboard',
-    component: EmployeeDashboardComponent,
-    data: { showHeader: false, showFooter: false, showChatBot: false },
-  },
-  {
-    path: 'adminDashboard',
-    component: AdminDashboardComponent,
-    data: { showHeader: false, showFooter: false, showChatBot: false },
-  },
-  {
-    path: 'login',
-    component: LoginComponent,
-    data: { showHeader: false, showFooter: false, showChatBot: false },
-  },
-  {
-    path: 'companyProfile',
-    component: CompanyProfileComponent,
-    data: { showHeader: false, showFooter: false, showChatBot: false },
-  },
-  {
-    path: 'directory',
-    component: DirectoryComponent,
-    data: { showHeader: false, showFooter: false, showChatBot: false },
-  },
-  {
-    path: 'payroll',
-    component: PayrollComponent,
-    data: { showHeader: false, showFooter: false, showChatBot: false },
-  },
-  {
-    path: 'leaves',
-    component: LeavesComponent,
-    data: { showHeader: false, showFooter: false, showChatBot: false },
-  },
-  {
-    path: 'attendance',
-    component: AttendanceComponent,
-    data: { showHeader: false, showFooter: false, showChatBot: false },
   },
 ];
 

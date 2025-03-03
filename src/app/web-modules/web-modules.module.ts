@@ -33,14 +33,6 @@ import { DataAnalyticsComponent } from './softwareServices/data-analytics/data-a
 import { BigDataComponent } from './softwareServices/big-data/big-data.component';
 import { JavaComponent } from './softwareServices/java/java.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { EmployeeDashboardComponent } from './dashboard/employee-dashboard/employee-dashboard.component';
-import { AdminDashboardComponent } from './dashboard/admin-dashboard/admin-dashboard.component';
-import { CompanyProfileComponent } from './dashboard/company-profile/company-profile.component';
-import { DashboardHeaderComponent } from './dashboard/dashboard-header/dashboard-header.component';
-import { DirectoryComponent } from './dashboard/directory/directory.component';
-import { PayrollComponent } from './dashboard/payroll/payroll.component';
-import { LeavesComponent } from './dashboard/leaves/leaves.component';
-import { AttendanceComponent } from './dashboard/attendance/attendance.component';
 import { CalendarModule } from 'primeng/calendar';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TableModule } from 'primeng/table';
@@ -77,14 +69,6 @@ import { TableModule } from 'primeng/table';
     DataAnalyticsComponent,
     BigDataComponent,
     JavaComponent,
-    EmployeeDashboardComponent,
-    AdminDashboardComponent,
-    CompanyProfileComponent,
-    DashboardHeaderComponent,
-    DirectoryComponent,
-    PayrollComponent,
-    LeavesComponent,
-    AttendanceComponent,
   ],
   imports: [
     CommonModule,

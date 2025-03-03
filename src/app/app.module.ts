@@ -15,7 +15,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { InsightsBlogComponent } from './insights-blog/insights-blog.component';
 import { ChatbotComponent } from './chatbot/chatbot.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +28,6 @@ import { LoginComponent } from './login/login.component';
     InsightsComponent,
     InsightsBlogComponent,
     ChatbotComponent,
-    LoginComponent,
   ],
   imports: [
     BrowserModule,
